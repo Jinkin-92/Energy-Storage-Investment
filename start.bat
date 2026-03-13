@@ -1,27 +1,26 @@
 @echo off
 chcp 65001 >nul
 echo ========================================
-echo   储能投资分析系统 - 启动脚本
-echo   Energy Storage Investment Analysis System
+echo   Energy Storage Investment Analysis
 echo ========================================
 echo.
 
 cd /d "%~dp0energy-storage-app"
 
-echo [1/2] 检查依赖...
+echo [1/2] Checking dependencies...
 if not exist "node_modules" (
-    echo 首次运行，正在安装依赖...
+    echo First run, installing dependencies...
     npm install
     if errorlevel 1 (
-        echo 依赖安装失败，请检查 Node.js 是否已安装
+        echo Failed to install dependencies. Please check if Node.js is installed.
         pause
         exit /b 1
     )
 )
 
-echo [2/2] 启动开发服务器...
+echo [2/2] Starting development server...
 echo.
-echo 端口: 5263
-echo 地址: http://localhost:5263
+echo Port: 5263
+echo URL:  http://localhost:5263
 echo.
 npm run dev
